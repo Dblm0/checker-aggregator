@@ -7,6 +7,6 @@ namespace MyChecker
 {
     interface ISender
     {
-       public void SendMsg();
+        void SendMsg(String Msg);
     }
 }

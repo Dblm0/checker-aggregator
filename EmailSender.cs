@@ -5,8 +5,10 @@ using System.Text;
 
 namespace MyChecker
 {
-    class EmailSender:ISender
+    public class EmailSender:ISender
     {
-        
+        public void SendMsg(String Msg)
+        {
+        }
     }
 }
