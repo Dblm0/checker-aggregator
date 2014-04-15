@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MyChecker
 {
-    public class EmailSender:ISender
+    class EmailSender:ISender
     {
         public void SendMsg(String Msg)
         {
