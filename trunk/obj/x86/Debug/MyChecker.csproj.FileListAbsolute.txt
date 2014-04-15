@@ -1,4 +1,0 @@
-C:\Users\AXE\Desktop\MyChecker\bin\Debug\MyChecker.exe
-C:\Users\AXE\Desktop\MyChecker\bin\Debug\MyChecker.pdb
-C:\Users\AXE\Desktop\MyChecker\obj\x86\Debug\MyChecker.exe
-C:\Users\AXE\Desktop\MyChecker\obj\x86\Debug\MyChecker.pdb
