@@ -14,7 +14,7 @@ namespace MyChecker
         public EmailSender()
         {
             _user = "logmeinpls@mail.ru";
-            Console.WriteLine(String.Format("Введите пароль для {0}", _user));
+            Console.WriteLine("Type password for {0}", _user);
             _pass = Console.ReadLine();
         }
         public void SendMsg(String Msg)

@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="CheckerAggregator.cs" />
     <Compile Include="EmailSender.cs" />
+    <Compile Include="FreeSpaceChecker.cs" />
     <Compile Include="IChecker.cs" />
     <Compile Include="ISender.cs" />
     <Compile Include="PingChecker.cs" />

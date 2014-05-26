@@ -28,14 +28,14 @@ namespace MyChecker
                 if (reply.Status != IPStatus.Success)
                 {
                     Result.Message = String.Format("{0}\n Ping to:{1} failed.\n PingReply status:{2}.",
-                this.GetType().ToString(), _destination , reply.Status);
+                this.GetType().ToString() , _destination , reply.Status);
                     Result.Status = ResultStatus.ERR;
                 }
             }
             catch (Exception ex)
             {
                 Result.Message = String.Format("{0}\n Ping to:{1} get an exception:{2}",
-                this.GetType().ToString(), _destination, ex.Message);
+                this.GetType().ToString() , _destination , ex.Message);
                 Result.Status = ResultStatus.WARNING;
             }
 
