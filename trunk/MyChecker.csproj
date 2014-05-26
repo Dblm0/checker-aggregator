@@ -47,6 +47,7 @@
     <Compile Include="EmailSender.cs" />
     <Compile Include="IChecker.cs" />
     <Compile Include="ISender.cs" />
+    <Compile Include="PingChecker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

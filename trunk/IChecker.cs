@@ -14,8 +14,8 @@ namespace MyChecker
     
     struct CheckResult
     {
-        ResultStatus Status;
-        String Message;
+       public ResultStatus Status;
+       public String Message;
     }
     
     
