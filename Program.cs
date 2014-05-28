@@ -9,12 +9,13 @@ namespace MyChecker
         static void Main(string[] args)
         {
             EmailSender Sender = new EmailSender();
-            
-            List<IChecker> Checkers = new List<IChecker>();
-            Checkers.Add(new PingChecker("codeproject.com"));
-            Checkers.Add(new FreeSpaceChecker("C"));
 
-            CheckerAggregator Aggregator = new CheckerAggregator(Checkers, Sender);
+            List<CheckerTask> CheckerTasks = new List<CheckerTask>();
+            CheckerTasks.Add(new CheckerTask(new PingChecker("codeproject.com"),5));
+            CheckerTasks.Add(new CheckerTask(new PingChecker("vk.com"), 2));
+            CheckerTasks.Add(new CheckerTask(new FreeSpaceChecker("C"), 3));
+
+            CheckerAggregator Aggregator = new CheckerAggregator(CheckerTasks, Sender);
             Aggregator.Run();
         }
     }

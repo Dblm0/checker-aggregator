@@ -8,11 +8,11 @@ namespace MyChecker
 {
     class CheckerAggregator
     {
-        private List<IChecker> _checkers;
+        private List<CheckerTask> _checkertasks;
         private ISender _sender;
-        public CheckerAggregator(List<IChecker> Checkers, ISender Sender)
+        public CheckerAggregator(List<CheckerTask> Checkers, ISender Sender)
         {
-            _checkers = Checkers;
+            _checkertasks = Checkers;
             _sender = Sender;
         }
 
@@ -20,21 +20,15 @@ namespace MyChecker
         {
             List<Task<CheckResult>> TaskList = new List<Task<CheckResult>>();
             String Message;
-            foreach (IChecker Checker in _checkers)
+            foreach (CheckerTask CT in _checkertasks)
             {
-                TaskList.Add(Task<CheckResult>.Factory.StartNew(() => Checker.Check()));
-
+                CT.Run();
             }
 
-
-            foreach (Task<CheckResult> Task in TaskList)
+            foreach (CheckerTask CT in _checkertasks)
             {
-                Message = Task.Result.Message;
-                Console.WriteLine(Message);
+               _sender.SendMsg(CT.GetResult().Message);
             }
-            
-     
-
         }
     }
 }
