@@ -11,6 +11,15 @@ namespace MyChecker
         private int _delayinsec;
         private IChecker _checker;
         private Task<CheckResult> _task;
+
+        public String CheckerType
+        {
+            get {return _checker.ToString(); }
+        }
+        public TaskStatus Status
+        {
+            get { return _task.Status; }
+        }
         public CheckerTask(IChecker Checker,int DelayInSec)
         {
             _delayinsec = DelayInSec;
@@ -27,7 +36,10 @@ namespace MyChecker
                 Result = _checker.Check();
                 if (Result.Status != ResultStatus.OK)
                     return Result;
-                Console.WriteLine("{0}", Result.Message);
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("{0}\n", Result.Message);
+                Console.ResetColor();
                 
                 Thread.Sleep(TimeSpan.FromSeconds(_delayinsec));
             }

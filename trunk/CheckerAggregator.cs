@@ -16,18 +16,31 @@ namespace MyChecker
             _sender = Sender;
         }
 
-        public void Run()
+        public void Exec()
         {
             List<Task<CheckResult>> TaskList = new List<Task<CheckResult>>();
-            String Message;
             foreach (CheckerTask CT in _checkertasks)
             {
                 CT.Run();
             }
 
-            foreach (CheckerTask CT in _checkertasks)
+            while (true)
             {
-               _sender.SendMsg(CT.GetResult().Message);
+                foreach (CheckerTask CT in _checkertasks)
+                {
+                    if (CT.Status != TaskStatus.RanToCompletion)
+                        continue;
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Checker :{0} Failed \n Sending report...\n ",CT.CheckerType);
+                        Console.ResetColor();
+
+                        _sender.SendMsg(CT.GetResult().Message);
+                        CT.Run();
+                    }
+                        
+                }
             }
         }
     }
